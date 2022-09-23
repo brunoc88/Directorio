@@ -27,7 +27,12 @@ public class Main {
                 case 2:
                     System.out.println(directorio.toString());
                     System.out.println("Ingrese el telefono de la persona que desea buscar");
-                    directorio.buscarCliente(leer.nextLong());
+                    Long telbus=leer.nextLong();//guardamos la variable para que podamos verla en el else
+                    if (directorio.buscarCliente(telbus)==null) {
+                        System.out.println("El cliente no se encuentra en el directorio");
+                    }else {
+                        System.out.println(directorio.buscarCliente(telbus));
+                    }
                     break;
                 case 3:
                     System.out.println("Ingrese el apellido de la persona");

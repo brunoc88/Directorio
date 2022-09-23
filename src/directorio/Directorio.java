@@ -1,9 +1,7 @@
 package directorio;
 
 
-import directorio.Cliente;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -69,36 +67,35 @@ public class Directorio {
     }
 
     public Cliente buscarCliente(Long telefono) {
-        int c = 0;
+        
+        //System.out.println(directorio.get(telefono));
+        //int c = 0;
+//        for (Map.Entry<Long, Cliente> entry : directorio.entrySet()) {
+//            Long key = entry.getKey();
+//            Cliente value = entry.getValue();
+//            if (key.equals(telefono)) {
+//                c++;
+//                System.out.println(cliente.toString());
+//                return cliente;    
+//            }else{
+//                System.out.println("El cliente no se encuentra en el directorio");
+//                cliente = null;  
+//            }
+//        }
+        return directorio.get(telefono);
+    }
+
+    public Long buscarTelefono(String apellido) {
         
         for (Map.Entry<Long, Cliente> entry : directorio.entrySet()) {
             Long key = entry.getKey();
             Cliente value = entry.getValue();
-            if (key.equals(telefono)) {
-                c++;
-                System.out.println(cliente.toString());
-                return cliente;  
-               
-            }else{
-                System.out.println("El cliente no se encuentra en el directorio");
-                cliente = null;
-                
-            }
-        }
-        return cliente;
-    }
-
-    public Long buscarTelefono(String apellido) {
-        for (Map.Entry<Long, Cliente> entry : directorio.entrySet()) {
-            Long key = entry.getKey();
-            Cliente value = entry.getValue();
             if (value.getApellido().equalsIgnoreCase(apellido)) {
-                System.out.println("telefono =" + " Cliente ="+cliente);
-                return telefono;
+                System.out.println("Telefono =" + telefono +" Apellido =" + apellido +" Nombre "+ value.getNombre());
+                //return telefono;
             }else{
                 System.out.println("No se encontro el apellido");
-                telefono = null;
-                
+                telefono = null; 
             }
         }
         return telefono;
@@ -113,16 +110,15 @@ public class Directorio {
                 return directorio;
             }else{
                 System.out.println("No se encontro coincidencia");
-                directorio = null;
-                
+                directorio = null;  
             }
-            
         }
         return directorio;
     }
 
     public void borrarClientes(Long telefono) {
-       directorio.remove(telefono);
+        System.out.println("ak se mueve ");
+        directorio.remove(telefono);
     }
 
     @Override
