@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Directorio telefonico">
+  <ClassDiagramComponents>
+    <Class name="Cliente" package="" visibility="public" xPosition="541.0" yPosition="185.0">
+      <Fields>
+        <Field name="dni" type="long" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="ciudad" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="955.0" yPosition="209.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Directorio" package="" visibility="public" xPosition="72.0" yPosition="185.0">
+      <Fields>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="telefono" type="int" visibility="private"/>
+        <Field name="HashMap" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarCliente" returnType="Cliente" visibility="public"/>
+        <Method name="buscarCliente" returnType="Cliente" visibility="public">
+          <Argument type="Long" name="telefono"/>
+        </Method>
+        <Method name="buscarTelefono" returnType="HashMap" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="buscarClientes" returnType="HashMap" visibility="public">
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="borrarClientes" returnType="void" visibility="public">
+          <Argument type="Long" name="telefono"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="Usa" source="Directorio" target="Cliente" sourceCardinality="1..*" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
