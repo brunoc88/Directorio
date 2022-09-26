@@ -67,21 +67,7 @@ public class Directorio {
     }
 
     public Cliente buscarCliente(Long telefono) {
-        
-        //System.out.println(directorio.get(telefono));
-        //int c = 0;
-//        for (Map.Entry<Long, Cliente> entry : directorio.entrySet()) {
-//            Long key = entry.getKey();
-//            Cliente value = entry.getValue();
-//            if (key.equals(telefono)) {
-//                c++;
-//                System.out.println(cliente.toString());
-//                return cliente;    
-//            }else{
-//                System.out.println("El cliente no se encuentra en el directorio");
-//                cliente = null;  
-//            }
-//        }
+
         return directorio.get(telefono);
     }
 
@@ -96,6 +82,7 @@ public class Directorio {
             }else{
                 System.out.println("No se encontro el apellido");
                 telefono = null; 
+                
             }
         }
         return telefono;
