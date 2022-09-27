@@ -4,6 +4,7 @@ package directorio;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Directorio {
 
@@ -47,28 +48,29 @@ public class Directorio {
         this.directorio = directorio;
     }
  
-    public Cliente agregarCliente() {
-        Scanner leer = new Scanner(System.in).useDelimiter("\n"); 
-        System.out.println("Ingrese los datos del cliente:");
-        Cliente c1 = new Cliente();
-        System.out.println("DNI:");
-        c1.setDni(leer.nextLong());
-        System.out.println("Ingrese nombre:");
-        c1.setNombre(leer.next());
-        System.out.println("Ingrese apellido:");
-        c1.setApellido(leer.next());
-        System.out.println("Ingrese Ciudad");
-        c1.setCiudad(leer.next());
-        System.out.println("Ingrese Direccion:");
-        c1.setDireccion(leer.next());
-        telefono = Math.round(Math.random()*1000)+1;
-        directorio.put(telefono, c1);
-        return c1;
+    public boolean agregarCliente(Cliente c1) {
+        boolean flag = false;
+        System.out.println(telefono);
+        if (directorio.containsKey(telefono)) {
+            JOptionPane.showMessageDialog(null,"no se pudo agregar");
+
+            flag = true;
+        } else {
+            directorio.put(telefono, c1);
+            JOptionPane.showMessageDialog(null,"Contacto agregado");
+            flag = false;
+        }
+        return flag;
     }
 
-    public Cliente buscarCliente(Long telefono) {
-
-        return directorio.get(telefono);
+    public void buscarCliente(Long telefono) {
+        if (directorio.get(telefono)==null) {
+            JOptionPane.showMessageDialog(null,"El cliente no se encuentra en el directorio");
+        }else{
+            JOptionPane.showMessageDialog(null,directorio.get(cliente));
+        }
+//  
+    
     }
 
     public Long buscarTelefono(String apellido) {

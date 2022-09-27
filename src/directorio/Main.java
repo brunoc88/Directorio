@@ -2,6 +2,7 @@
 package directorio;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 
 public class Main {
@@ -10,6 +11,7 @@ public class Main {
         Scanner leer = new Scanner(System.in).useDelimiter("\n"); 
         Directorio directorio = new Directorio();
         String seleccion = "";
+       
         do {
             System.out.println("");
             System.out.println("Menu.");
@@ -22,7 +24,10 @@ public class Main {
             int option = leer.nextInt();
             switch (option) {
                 case 1:
-                    directorio.agregarCliente();
+                    JOptionPane.showMessageDialog(null,"Ingrese los datos del cliente:");
+                    JOptionPane.showMessageDialog(null,"DNI,Nombre,Apellido,Ciudad,Telefono");
+                    Cliente cliente = new Cliente(leer.nextLong(), leer.next(), leer.next(), leer.next(), leer.next());
+                    directorio.agregarCliente(cliente);
                     break;
                 case 2:
                     System.out.println(directorio.toString());
